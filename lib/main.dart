@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/text-box.dart';
 
 void main() {
   runApp(Demo());
@@ -22,11 +23,7 @@ class Demo extends StatelessWidget {
             ),
           ),
         ),
-        body: Center(
-          child: Column(
-            children: <Widget>[],
-          ),
-        ),
+        body: TextTransition(),
       ),
     );
   }

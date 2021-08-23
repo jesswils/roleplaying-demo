@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kTitleFontStyle = TextStyle(
+const kFontStyle = TextStyle(
   fontFamily: 'Epilogue',
   height: 33.0,
   fontSize: 21.0,
