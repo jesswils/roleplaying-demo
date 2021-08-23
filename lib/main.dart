@@ -13,10 +13,12 @@ class Demo extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xFFF5E8E3),
-          title: const Text('Byrd'),
+          title: Image.asset('./assets/images/byrd-logo.png'),
         ),
-        body: const Center(
-          child: image.asset,
+        body: Center(
+          child: Column(
+            children: <Widget>[],
+          ),
         ),
       ),
     );
