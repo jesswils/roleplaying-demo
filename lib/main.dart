@@ -11,9 +11,16 @@ class Demo extends StatelessWidget {
       theme: ThemeData(),
       title: 'Roleplaying Demo',
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFFF5E8E3),
-          title: Image.asset('./assets/images/byrd-logo.png'),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(45.0),
+          child: AppBar(
+            backgroundColor: Color(0xFFF5E8E3),
+            title: Image.asset(
+              './assets/images/byrd-logo.png',
+              fit: BoxFit.fill,
+              height: 150.0,
+            ),
+          ),
         ),
         body: Center(
           child: Column(
