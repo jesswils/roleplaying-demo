@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:role_playing_demo/constants.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 class TypewriterText extends StatefulWidget {
   @override
