@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:role_playing_demo/constants.dart';
 
 class TypewriterText extends StatefulWidget {
   @override
@@ -11,17 +12,30 @@ class _TypewriterTextState extends State<TypewriterText> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: TweenAnimationBuilder<int>(
-          duration: Duration(milliseconds: 1000),
-          builder: (BuildContext _, int value, Widget) {
-            return Text(string.substring(0, value) + '');
-          },
-          tween: IntTween(begin: 0, end: string.length),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: TweenAnimationBuilder<int>(
+                duration: Duration(milliseconds: 1000),
+                builder: (BuildContext _, int value, widget) {
+                  return Text(
+                    string.substring(0, value) + '',
+                    maxLines: 1,
+                    style: TextStyle(
+                        fontFamily: 'Epilogue', height: 33.0, fontSize: 21.0),
+                  );
+                },
+                tween: IntTween(begin: 0, end: string.length),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+// Text(string.substring(0, value) + '');
+// tween: IntTween(begin: 0, end: string.length),
 
 // @override
 // void initState() {
