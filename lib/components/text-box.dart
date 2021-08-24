@@ -12,15 +12,17 @@ class _TypewriterTextState extends State<TypewriterText> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            Expanded(
+            SizedBox(
+              width: 300,
+              height: 100,
               child: TweenAnimationBuilder<int>(
                 duration: Duration(milliseconds: 1000),
                 builder: (BuildContext _, int value, widget) {
                   return Text(
                     string.substring(0, value) + '',
-                    maxLines: 1,
                     style: TextStyle(
                         fontFamily: 'Epilogue', height: 33.0, fontSize: 21.0),
                   );
