@@ -1,60 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:role_playing_demo/constants.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
-class TextTransition extends StatefulWidget {
+class TypewriterText extends StatefulWidget {
   @override
-  _TextTransitionState createState() => _TextTransitionState();
+  _TypewriterTextState createState() => _TypewriterTextState();
 }
 
-class _TextTransitionState extends State<TextTransition>
-    with SingleTickerProviderStateMixin {
-  late Animation<Offset> animation;
-  late AnimationController controller;
-//the late keyword is used to mark variables that will be initalised later
-  @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    )..forward();
-    animation = Tween<Offset>(
-      begin: Offset(0.7, 0.1),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: controller, curve: Curves.easeInCubic));
-    //   ..addListener(() {
-    //     setState(() {});
-    //   });
-    // controller.forward();
-  }
-
+class _TypewriterTextState extends State<TypewriterText> {
+  final string = 'There was nothing hugely special about the run today.';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.fromLTRB(9.0, 25.0, 9.0, 0.0),
-              height: 300,
-              width: 400,
-              child: SlideTransition(
-                position: animation,
-                child: kFirstParagraph,
-              ),
-            ),
-          ],
+      body: Center(
+        child: TweenAnimationBuilder<int>(
+          duration: Duration(milliseconds: 1000),
+          builder: (BuildContext _, int value, Widget) {
+            return Text(string.substring(0, value) + '');
+          },
+          tween: IntTween(begin: 0, end: string.length),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 }
 
@@ -80,3 +48,15 @@ class _TextTransitionState extends State<TextTransition>
 //   maxWidth: 400.0,
 //   minWidth: 150.0,
 //   minHeight: 150.0),
+
+// AnimatedTextKit(
+// animatedTexts: [
+// TyperAnimatedText(
+// 'There was nothing hugely special about the run today.',
+// textStyle: TextStyle(
+// fontFamily: 'Epilogue',
+// height: 33.0,
+// fontSize: 21.0,
+// ),
+// speed: Duration(milliseconds: 50),
+// ),

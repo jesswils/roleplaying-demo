@@ -24,7 +24,7 @@ class Demo extends StatelessWidget {
             ),
           ),
         ),
-        body: TextTransition(),
+        body: TypewriterText(),
       ),
     );
   }
