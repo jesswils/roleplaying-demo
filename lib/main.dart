@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/text-box.dart';
+import 'components/typer-text.dart';
 // import 'components/fade-in.dart';
 
 void main() {
